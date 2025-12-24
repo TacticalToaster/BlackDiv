@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>BlackDivServer</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <Version>0.0.1</Version>
+    <!-- The two lines below will set the output path for the binaries -->
+    <OutputPath>bin\$(Configuration)\$(ProjectName)\$(AssemblyName)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyName>BlackDivServer</AssemblyName>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="config.jsonc" />
+    <None Remove="db\bots\sharedTypes\ruafRiflemanSenior.jsonc" />
+    <None Remove="db\bots\sharedTypes\ruaf_all.jsonc" />
+    <None Remove="db\bots\sharedTypes\ruaf_couturier.jsonc" />
+    <None Remove="db\CustomQuests\prapor\Images\ruaf1.png" />
+    <None Remove="db\CustomQuests\prapor\Images\ruaf2.png" />
+    <None Remove="db\CustomQuests\prapor\Images\ruaf3.png" />
+    <None Remove="db\CustomQuests\prapor\Images\ruaf4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="db\bots\sharedConfig\blackDiv.jsonc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="fastJSON5" Version="1.0.4">
+      <Private>true</Private>
+      <CopyLocal>true</CopyLocal>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+    </PackageReference>
+    <PackageReference Include="SPTarkov.Common" Version="4.0.0" />
+    <PackageReference Include="SPTarkov.DI" Version="4.0.0" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.0.0" />
+    <PackageReference Include="SPTarkov.Reflection" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="db\bots\config\" />
+    <Folder Include="db\bots\types\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MoreBotsServer">
+      <Private>false</Private>
+      <HintPath>..\Reference\MoreBotsServer\MoreBotsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="WTT-ServerCommonLib">
+      <Private>false</Private>
+      <HintPath>..\Reference\WTT-ServerCommonLib\WTT-ServerCommonLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\common\ak12.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\common\ak74m.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\common\a_ruaf_common.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\common\pk.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\common\rpk.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\common\svds.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafAutorifleman.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafGrenadier.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafMachinegunner.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafMarksman.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafRifleman.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafRiflemanSenior.json" />
+    <_ContentIncludedByDefault Remove="db\bots\loadouts\template\ruaf_standard.json" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="@echo off&#xA;setlocal enabledelayedexpansion&#xA;&#xA;REM Set variables&#xA;set MODNAME=$(TargetName)&#xA;set DLLPATH=$(TargetDir)$(TargetName).dll&#xA;set OUTDIR=..\..\..\SPT\user\mods\%25MODNAME%25&#xA;set RESOURCESDIR=$(ProjectDir)db&#xA;&#xA;REM Create output directory if it doesn't exist&#xA;if not exist &quot;%25OUTDIR%25&quot; mkdir &quot;%25OUTDIR%25&quot;&#xA;&#xA;if not exist &quot;%25OUTDIR%25\db&quot; mkdir &quot;%25OUTDIR%25\db&quot;&#xA;&#xA;REM Clear the output directory (except the dll we're about to copy)&#xA;if exist &quot;%25OUTDIR%25&quot; (&#xA;    for /d %25%25D in (&quot;%25OUTDIR%25\*&quot;) do rmdir /s /q &quot;%25%25D&quot;&#xA;    for %25%25F in (&quot;%25OUTDIR%25\*&quot;) do (&#xA;        if /i not &quot;%25%25~nxF&quot;==&quot;$(TargetName).dll&quot; del /q &quot;%25%25F&quot;&#xA;    )&#xA;)&#xA;&#xA;REM Copy the DLL file&#xA;copy /Y &quot;%25DLLPATH%25&quot; &quot;%25OUTDIR%25\&quot; &gt;nul 2&gt;&amp;1&#xA;echo [PostBuild] Copied %25MODNAME%25.dll&#xA;&#xA;REM Copy all contents from Resources folder recursively&#xA;if exist &quot;%25RESOURCESDIR%25&quot; (&#xA;    xcopy &quot;%25RESOURCESDIR%25&quot; &quot;%25OUTDIR%25\db&quot; /E /I /Y &gt;nul 2&gt;&amp;1&#xA;    echo [PostBuild] Copied Resources to output directory&#xA;) else (&#xA;    echo [PostBuild] Warning: Resources folder not found at %25RESOURCESDIR%25&#xA;)&#xA;&#xA;echo [PostBuild] Build output: %25OUTDIR%25" />
+  </Target>
+</Project>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackDiv", "BlackDiv.csproj", "{A19DD6DB-3AC1-51A7-5F25-9DC81F852BFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A19DD6DB-3AC1-51A7-5F25-9DC81F852BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19DD6DB-3AC1-51A7-5F25-9DC81F852BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19DD6DB-3AC1-51A7-5F25-9DC81F852BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19DD6DB-3AC1-51A7-5F25-9DC81F852BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3662CDA0-86F6-4461-9FF6-2E2045D65405}
+	EndGlobalSection
+EndGlobal
