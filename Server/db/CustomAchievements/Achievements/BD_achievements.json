@@ -1,0 +1,467 @@
+[
+  {
+    "id": "694e285262acbb44b1682cbc",
+    "imageUrl": "/files/achievement/bdcommon.png",
+    "assetPath": "",
+    "rewards": [
+      {
+        "id": "694e2c8314ee9bc57e539d7f",
+        "unknown": false,
+        "gameMode": [
+          "regular",
+          "pve"
+        ],
+        "availableInGameEditions": [],
+        "illustrationConfig": null,
+        "isHidden": false,
+        "target": "694e2c86e7ee70c6d2dbbb0c",
+        "loyaltyLevel": 4,
+        "traderId": "5ac3b934156ae10c4430e83c",
+        "items": [
+          {
+            "_id": "694e2c86e7ee70c6d2dbbb0c",
+            "_tpl": "689479eb30cc5ba7be00f5ff"
+          },
+          {
+            "_id": "68a6044e936957627207e7de",
+            "_tpl": "68a5f30248f18317750ab20b",
+            "parentId": "694e2c86e7ee70c6d2dbbb0c",
+            "slotId": "Soft_armor_front"
+          },
+          {
+            "_id": "68a6044e936957627207e7df",
+            "_tpl": "68a5f3a348f18317750ab4be",
+            "parentId": "694e2c86e7ee70c6d2dbbb0c",
+            "slotId": "Soft_armor_back"
+          },
+          {
+            "_id": "68a6044e936957627207e7e0",
+            "_tpl": "656fa53d94b480b8a500c0e4",
+            "parentId": "694e2c86e7ee70c6d2dbbb0c",
+            "slotId": "Front_plate"
+          },
+          {
+            "_id": "68a6044e936957627207e7e1",
+            "_tpl": "656fa53d94b480b8a500c0e4",
+            "parentId": "694e2c86e7ee70c6d2dbbb0c",
+            "slotId": "Back_plate"
+          }
+        ],
+        "type": "AssortmentUnlock"
+      },
+      {
+        "id": "694e2d0c380ce4603832e8d8",
+        "unknown": false,
+        "gameMode": [
+          "regular",
+          "pve"
+        ],
+        "availableInGameEditions": [],
+        "illustrationConfig": null,
+        "isHidden": false,
+        "target": "694e2d0fe2bf77c36d6330ba",
+        "loyaltyLevel": 4,
+        "traderId": "5ac3b934156ae10c4430e83c",
+        "items": [
+          {
+            "_id": "694e2d0fe2bf77c36d6330ba",
+            "_tpl": "689479a4a733b1602007e2eb"
+          },
+          {
+            "_id": "68a604ab65348b819501908a",
+            "_tpl": "68a5f30248f18317750ab20b",
+            "parentId": "694e2d0fe2bf77c36d6330ba",
+            "slotId": "Soft_armor_front"
+          },
+          {
+            "_id": "68a604ab65348b819501908b",
+            "_tpl": "68a5f3a348f18317750ab4be",
+            "parentId": "694e2d0fe2bf77c36d6330ba",
+            "slotId": "Soft_armor_back"
+          },
+          {
+            "_id": "68a604ab65348b819501908c",
+            "_tpl": "68a5f3ec7c9f6975d00238be",
+            "parentId": "694e2d0fe2bf77c36d6330ba",
+            "slotId": "Soft_armor_left"
+          },
+          {
+            "_id": "68a604ab65348b819501908d",
+            "_tpl": "68a5f42948f18317750ab543",
+            "parentId": "694e2d0fe2bf77c36d6330ba",
+            "slotId": "soft_armor_right"
+          },
+          {
+            "_id": "68a604ab65348b819501908e",
+            "_tpl": "656faf0ca0dce000a2020f77",
+            "parentId": "694e2d0fe2bf77c36d6330ba",
+            "slotId": "Front_plate"
+          },
+          {
+            "_id": "68a604ab65348b819501908f",
+            "_tpl": "656faf0ca0dce000a2020f77",
+            "parentId": "694e2d0fe2bf77c36d6330ba",
+            "slotId": "Back_plate"
+          }
+        ],
+        "type": "AssortmentUnlock"
+      }
+    ],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "id": "694e2854e35641ed50682cbd",
+          "index": 0,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "value": 4,
+          "type": "Elimination",
+          "oneSessionOnly": false,
+          "completeInSeconds": 0,
+          "doNotResetIfCounterCompleted": false,
+          "isResetOnConditionFailed": false,
+          "isNecessary": false,
+          "counter": {
+            "id": "694e285660b5e8eb54682cbe",
+            "conditions": [
+              {
+                "id": "694e28577871394863682cbf",
+                "dynamicLocale": false,
+                "target": "Savage",
+                "value": 1,
+                "compareMethod": ">=",
+                "conditionType": "Kills",
+                "weapon": [],
+                "bodyPart": [],
+                "daytime": {
+                  "from": 0,
+                  "to": 0
+                },
+                "distance": {
+                  "compareMethod": ">=",
+                  "value": 0
+                },
+                "resetOnSessionEnd": false,
+                "savageRole": [
+                  "blackDivAssault"
+                ],
+                "enemyEquipmentExclusive": [],
+                "enemyEquipmentInclusive": [],
+                "enemyHealthEffects": [],
+                "weaponCaliber": [],
+                "weaponModsExclusive": [],
+                "weaponModsInclusive": []
+              }
+            ]
+          },
+          "conditionType": "CounterCreator"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": true,
+    "showProgress": true,
+    "prefab": "",
+    "rarity": "Common",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": true,
+    "side": "Pmc",
+    "index": 901
+  },
+  {
+    "id": "694e28b84979954bb3682cc4",
+    "imageUrl": "/files/achievement/bdrare.png",
+    "assetPath": "",
+    "rewards": [
+      {
+        "id": "694e2c1b195f9e6839c383b4",
+        "unknown": false,
+        "gameMode": [
+          "regular",
+          "pve"
+        ],
+        "availableInGameEditions": [],
+        "illustrationConfig": null,
+        "isHidden": false,
+        "target": "694e2be8909bde9692fa6235",
+        "loyaltyLevel": 4,
+        "traderId": "5ac3b934156ae10c4430e83c",
+        "items": [
+          {
+            "_id": "694e2be8909bde9692fa6235",
+            "_tpl": "689479cb47e5acd1e10be986"
+          },
+          {
+            "_id": "68a6038b5a25c803bc0685a4",
+            "_tpl": "68a5ec952295a9739b032dd8",
+            "parentId": "694e2be8909bde9692fa6235",
+            "slotId": "Soft_armor_front"
+          },
+          {
+            "_id": "68a6038b5a25c803bc0685a5",
+            "_tpl": "68a5ec3731f944d6be0efd64",
+            "parentId": "694e2be8909bde9692fa6235",
+            "slotId": "Soft_armor_back"
+          },
+          {
+            "_id": "68a6038b5a25c803bc0685a6",
+            "_tpl": "68a5ecd83acdf023050b1c1c",
+            "parentId": "694e2be8909bde9692fa6235",
+            "slotId": "Soft_armor_left"
+          },
+          {
+            "_id": "68a6038b5a25c803bc0685a7",
+            "_tpl": "68a5ee4b91ebcb4d0c019d88",
+            "parentId": "694e2be8909bde9692fa6235",
+            "slotId": "soft_armor_right"
+          },
+          {
+            "_id": "68a6038b5a25c803bc0685a8",
+            "_tpl": "656fae5f7c2d57afe200c0d7",
+            "parentId": "694e2be8909bde9692fa6235",
+            "slotId": "Front_plate"
+          },
+          {
+            "_id": "68a6038b5a25c803bc0685a9",
+            "_tpl": "656fae5f7c2d57afe200c0d7",
+            "parentId": "694e2be8909bde9692fa6235",
+            "slotId": "Back_plate"
+          }
+        ],
+        "type": "AssortmentUnlock"
+      }
+    ],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "id": "694e28a9466396189f682cc2",
+          "index": 0,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "value": 12,
+          "type": "Elimination",
+          "oneSessionOnly": false,
+          "completeInSeconds": 0,
+          "doNotResetIfCounterCompleted": false,
+          "isResetOnConditionFailed": false,
+          "isNecessary": false,
+          "counter": {
+            "id": "694e28a7e32aa17fda682cc1",
+            "conditions": [
+              {
+                "id": "694e28a647e89bf803682cc0",
+                "dynamicLocale": false,
+                "target": "Savage",
+                "value": 1,
+                "compareMethod": ">=",
+                "conditionType": "Kills",
+                "weapon": [],
+                "bodyPart": [],
+                "daytime": {
+                  "from": 0,
+                  "to": 0
+                },
+                "distance": {
+                  "compareMethod": ">=",
+                  "value": 0
+                },
+                "resetOnSessionEnd": false,
+                "savageRole": [
+                  "blackDivAssault"
+                ],
+                "enemyEquipmentExclusive": [],
+                "enemyEquipmentInclusive": [],
+                "enemyHealthEffects": [],
+                "weaponCaliber": [],
+                "weaponModsExclusive": [],
+                "weaponModsInclusive": []
+              }
+            ]
+          },
+          "conditionType": "CounterCreator"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": true,
+    "showProgress": true,
+    "prefab": "",
+    "rarity": "Rare",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": true,
+    "side": "Pmc",
+    "index": 4001
+  },
+  {
+    "id": "694e28c20f8146f8c0682cc5",
+    "imageUrl": "/files/achievement/bdlegendary.png",
+    "assetPath": "",
+    "rewards": [
+      {
+        "id": "694e2c3d5788bf0261ad7715",
+        "unknown": false,
+        "gameMode": [
+          "regular",
+          "pve"
+        ],
+        "availableInGameEditions": [],
+        "illustrationConfig": null,
+        "isHidden": false,
+        "target": "694e2c3e74d65f6230ab4ada",
+        "loyaltyLevel": 4,
+        "traderId": "5ac3b934156ae10c4430e83c",
+        "items": [
+          {
+            "_id": "694e2c3e74d65f6230ab4ada",
+            "_tpl": "68947a4be4bf255d1b0ca746"
+          },
+          {
+            "_id": "68a60327fb13db424b092566",
+            "_tpl": "68a5eaab48f18317750a0b92",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Soft_armor_front"
+          },
+          {
+            "_id": "68a60327fb13db424b092567",
+            "_tpl": "68a5ea26200341f12e08de79",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Soft_armor_back"
+          },
+          {
+            "_id": "68a60327fb13db424b092568",
+            "_tpl": "68a5eb4c200341f12e08e7d1",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Soft_armor_left"
+          },
+          {
+            "_id": "68a60327fb13db424b092569",
+            "_tpl": "68a5eba93acdf023050b1c15",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "soft_armor_right"
+          },
+          {
+            "_id": "68a60327fb13db424b09256a",
+            "_tpl": "68a5ea756e534ad0110eca16",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Collar"
+          },
+          {
+            "_id": "68a60327fb13db424b09256b",
+            "_tpl": "68a5eb16c4e56258880dfe96",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Shoulder_l"
+          },
+          {
+            "_id": "68a60327fb13db424b09256c",
+            "_tpl": "68a5eb856e534ad0110efa05",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Shoulder_r"
+          },
+          {
+            "_id": "68a60327fb13db424b09256d",
+            "_tpl": "68a5eadd2c125bac5a097cbf",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Groin"
+          },
+          {
+            "_id": "68a60327fb13db424b09256e",
+            "_tpl": "655746010177119f4a097ff7",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Front_plate"
+          },
+          {
+            "_id": "68a60327fb13db424b09256f",
+            "_tpl": "655746010177119f4a097ff7",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Back_plate"
+          },
+          {
+            "_id": "68a60327fb13db424b092570",
+            "_tpl": "6557458f83942d705f0c4962",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Left_side_plate"
+          },
+          {
+            "_id": "68a60327fb13db424b092571",
+            "_tpl": "6557458f83942d705f0c4962",
+            "parentId": "694e2c3e74d65f6230ab4ada",
+            "slotId": "Right_side_plate"
+          }
+        ],
+        "type": "AssortmentUnlock"
+      }
+    ],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "id": "694e28c99f4f404561682cc6",
+          "index": 0,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "value": 50,
+          "type": "Elimination",
+          "oneSessionOnly": false,
+          "completeInSeconds": 0,
+          "doNotResetIfCounterCompleted": false,
+          "isResetOnConditionFailed": false,
+          "isNecessary": false,
+          "counter": {
+            "id": "694e28cbb6594f9cb6682cc7",
+            "conditions": [
+              {
+                "id": "694e28ccf97582c378682cc8",
+                "dynamicLocale": false,
+                "target": "Savage",
+                "value": 1,
+                "compareMethod": ">=",
+                "conditionType": "Kills",
+                "weapon": [],
+                "bodyPart": [],
+                "daytime": {
+                  "from": 0,
+                  "to": 0
+                },
+                "distance": {
+                  "compareMethod": ">=",
+                  "value": 0
+                },
+                "resetOnSessionEnd": false,
+                "savageRole": [
+                  "blackDivAssault"
+                ],
+                "enemyEquipmentExclusive": [],
+                "enemyEquipmentInclusive": [],
+                "enemyHealthEffects": [],
+                "weaponCaliber": [],
+                "weaponModsExclusive": [],
+                "weaponModsInclusive": []
+              }
+            ]
+          },
+          "conditionType": "CounterCreator"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": true,
+    "showProgress": true,
+    "prefab": "",
+    "rarity": "Legendary",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": true,
+    "side": "Pmc",
+    "index": 9001
+  }
+]

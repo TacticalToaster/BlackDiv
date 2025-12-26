@@ -73,6 +73,7 @@
     <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafRifleman.json" />
     <_ContentIncludedByDefault Remove="db\bots\loadouts\ruafRiflemanSenior.json" />
     <_ContentIncludedByDefault Remove="db\bots\loadouts\template\ruaf_standard.json" />
+    <_ContentIncludedByDefault Remove="db\CustomAchievements\CustomAchievements\Locales\en.json" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

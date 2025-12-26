@@ -12,6 +12,6 @@ namespace BlackDiv
         public const string PreLoadGUID = "com.blackdiv.tacticaltoaster";
         public const string PluginName = "BlackDiv";
         public const string PreLoadName = "BlackDiv Prepatch";
-        public const string Version = "0.1.0";
+        public const string Version = "1.0.0";
     }
 }

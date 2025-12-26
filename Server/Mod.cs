@@ -15,10 +15,10 @@ namespace BlackDivServer;
 public record ModMetadata : AbstractModMetadata
 {
     public override string ModGuid { get; init; } = "com.blackdiv.tacticaltoaster";
-    public override string Name { get; init; } = "Black Division";
+    public override string Name { get; init; } = "Black Division [REDACTED] Home";
     public override string Author { get; init; } = "TacticalToaster";
     public override List<string>? Contributors { get; init; } = new() { };
-    public override SemanticVersioning.Version Version { get; init; } = new(0, 1, 0);
+    public override SemanticVersioning.Version Version { get; init; } = new(1, 0, 0);
     public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
     public override List<string>? Incompatibilities { get; init; }
     public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; } = new()
@@ -120,7 +120,7 @@ public class BlackDivServer(
             factionService.AddEnemyByFaction(typeList, "ruaf");
         }
 
-        //await commonLib.CustomQuestService.CreateCustomQuests(assembly);
+        //await commonLib.CustomAchievementService.CreateCustomAchievements(assembly);
 
         // Use WTT to add locales
         await commonLib.CustomLocaleService.CreateCustomLocales(assembly);
