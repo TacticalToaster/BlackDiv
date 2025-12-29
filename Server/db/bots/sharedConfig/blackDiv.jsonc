@@ -59,7 +59,7 @@
     // Roubles
     "5449016a4bdc2d6f028b456f": {
       //  Amount: weighted chance (higher means more likely to be picked)
-      "0": 51
+      "10": 0
     },
     // Dollars
     "5696686a4bdc2da3298b456a": {
@@ -75,7 +75,7 @@
     },
     // GP Coin
     "5d235b4d86f7742e017bc88a": {
-      "0": 15
+      "10": 0
     }
   }
 }

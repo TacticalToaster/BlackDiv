@@ -22,7 +22,7 @@ namespace BlackDiv.Components
         private bool startNewHunt = false;
         private WildSpawnType huntRole;
         private BotsGroup newHuntGroup;
-        private List<string> unpickedHunts;
+        private List<string> unpickedHunts = new List<string>();
 
         private float nextUpdate = 0f;
 
@@ -33,9 +33,10 @@ namespace BlackDiv.Components
 
             nextUpdate = Time.time + 240f;
 
-            if (UnityEngine.Random.Range(0, 100) <= 10 && unpickedHunts.Count > 0)
+            if (UnityEngine.Random.Range(0, 100) < 8 && unpickedHunts.Count > 0)
             {
                 var randomEvent = unpickedHunts.Random();
+                if (randomEvent == null) return;
                 unpickedHunts.Remove(randomEvent);
                 StartHunt(randomEvent);
             }
@@ -52,7 +53,7 @@ namespace BlackDiv.Components
         public void InitRaid()
         {
             var roles = new List<WildSpawnType> { (WildSpawnType)848420, (WildSpawnType)848421, (WildSpawnType)848422, (WildSpawnType)848423, (WildSpawnType)848424, (WildSpawnType)848425 };
-            AddHuntRoles(roles, new List<WildSpawnType> { WildSpawnType.exUsec });
+            //AddHuntRoles(roles, new List<WildSpawnType> { WildSpawnType.exUsec });
 
             unpickedHunts = [.. huntEvents.Keys];
 
@@ -164,7 +165,10 @@ namespace BlackDiv.Components
         public void AddHuntRoles(WildSpawnType hunter, List<WildSpawnType> hunted)
         {
             if (validHuntRoles.ContainsKey(hunter))
-                validHuntRoles[hunter] = hunted;
+            {
+                validHuntRoles[hunter].AddRange(hunted);
+                validHuntRoles[hunter] = validHuntRoles[hunter].Distinct().ToList();
+            }
             else
                 validHuntRoles.Add(hunter, hunted);
         }

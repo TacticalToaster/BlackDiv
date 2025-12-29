@@ -20,7 +20,7 @@ public class SpawnController(
     private BossLocationSpawn? gate1 = null;
     private BossLocationSpawn? gate2 = null;
 
-    private List<string> spawnMaps = ["bigmap", "tarkovstreets", "shoreline", "lighthouse", "factory4_day", "factory4_night", "interchange", "sandbox_high"];
+    private List<string> spawnMaps = ["bigmap", "tarkovstreets", "shoreline", "lighthouse", "factory4_day", "factory4_night", "interchange", "sandbox_high", "rezervbase", "labyrinth"];
 
     public void AdjustAllSpawns()
     {
@@ -61,7 +61,7 @@ public class SpawnController(
             var normalSpawn = new BossLocationSpawn
             {
                 BossName = "blackDivAssault",
-                BossChance = 10,
+                BossChance = 15,
                 BossDifficulty = "normal",
                 BossEscortAmount = "2,2,2,3,3,4",
                 BossEscortDifficulty = "normal",
@@ -80,7 +80,7 @@ public class SpawnController(
             };
             labs.Base.BossLocationSpawn.Add(normalSpawn);
 
-            if (randomUtil.GetChance100(10))
+            if (randomUtil.GetChance100(20))
             {
                 labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00632_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
@@ -108,7 +108,7 @@ public class SpawnController(
                 logger.Info("Added Black Division Gate1 spawn to Labs.");
             }
 
-            if (randomUtil.GetChance100(10))
+            if (randomUtil.GetChance100(20))
             {
                 labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00014_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
@@ -205,7 +205,7 @@ public class SpawnController(
     {
         logger.Info($"Enabling Black Division hunt for {map}.");
 
-        var patrolSize = randomUtil.GetInt(3, 6);
+        var patrolSize = randomUtil.GetInt(3, 4);
         var patrol = GeneratePatrol(patrolSize, 100, false);
 
         patrol.Time = -1;

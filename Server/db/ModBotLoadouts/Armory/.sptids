@@ -1016,6 +1016,16 @@
             "PrefabPath": "Items_Quests/quest_canus_lupis_note.bundle"
         }
     },
+    "694da5f84825e8c609000001": {
+            "en": {
+                "Name": "Crate of OFZ 30x165mm shells",
+                "ShortName": "OFZ",
+                "ParentID": "590c745b86f7743cc433c5f2",
+                "Type": "Other",
+                "Description": "A crate of OFZ shells. Don't drop it!",
+                "PrefabPath": "Items_Quests/quest_ofz_crate.bundle"
+            }
+        },
     "6868d249cdee524f8c0ba45f": {
         "en": {
             "Name": "Beretta 92FS 9x19 pistol",

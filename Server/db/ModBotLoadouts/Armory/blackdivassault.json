@@ -41,12 +41,12 @@
   "inventory": {
     "equipment": {
       "FirstPrimaryWeapon": {
-        "69066bef905ee9e06c462009": 10,
-        "6906a1aeef59ca68d128e8b7": 10,
-        "687afda52dc9fd6c0e14c602": 10,
-        "6761b213607f9a6f79017c7e": 10,
-        "66e718dc498d978477e0ba75": 15, // SAW
-        "6920b28eabc4f9d229cb7e49": 5,
+        "69066bef905ee9e06c462009": 20,
+        "6906a1aeef59ca68d128e8b7": 20,
+        "687afda52dc9fd6c0e14c602": 15,
+        "6761b213607f9a6f79017c7e": 15,
+        "66e718dc498d978477e0ba75": 10, // SAW
+        "6920b28eabc4f9d229cb7e49": 8,
         "664a5b945636ce820472f225": 10
       },
       "Holster": {
