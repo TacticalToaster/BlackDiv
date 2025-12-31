@@ -29,7 +29,9 @@ namespace BlackDiv.Components
         public void Update()
         {
 
-            if (nextUpdate > Time.time || Singleton<GameWorld>.Instantiated == false ||
+            if (nextUpdate > Time.time) return;
+            
+            if (Singleton<GameWorld>.Instantiated == false ||
                 Singleton<GameWorld>.Instance is HideoutGameWorld)
             {
                 nextUpdate = Time.time + 10f;
