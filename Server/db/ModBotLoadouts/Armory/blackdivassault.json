@@ -32,7 +32,7 @@
       "mod_hammer": 100,
       "mod_trigger": 100,
       "mod_catch": 100,
-      "mod_scope_001": 100,
+      "mod_scope_000": 100,
       "mod_barrel_000": 100,
       "mod_mount": 100,
       "mod_gas_block": 100
@@ -45,7 +45,7 @@
         "6906a1aeef59ca68d128e8b7": 20,
         "687afda52dc9fd6c0e14c602": 15,
         "6761b213607f9a6f79017c7e": 15,
-        "66e718dc498d978477e0ba75": 10, // SAW
+        "66e718dc498d978477e0ba75": 10,
         "6920b28eabc4f9d229cb7e49": 8,
         "664a5b945636ce820472f225": 10
       },
@@ -441,7 +441,7 @@
         "mod_magazine": [
           "66e71a9d187b580f24ea582f"
         ],
-        "mod_scope_001": [
+        "mod_scope_000": [
           "584924ec24597768f12ae244",
           "57aca93d2459771f2c7e26db"
         ],
