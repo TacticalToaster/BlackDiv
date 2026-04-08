@@ -99,19 +99,21 @@ public class BlackDivServer(
 
         customBotTypeService.AddCustomWildSpawnTypeNames(typeDictionary);
 
-        // Add enemies based on factions
+        // Add enemies based on factions (USEC removed - BD is friendly to USEC/player)
         factionService.AddEnemyByFaction(typeList, "savage");
         factionService.AddEnemyByFaction(typeList, "rogues");
-        factionService.AddEnemyByFaction(typeList, "usec");
         factionService.AddEnemyByFaction(typeList, "bear");
         factionService.AddEnemyByFaction(typeList, "infected");
 
-        // Add RUAF as enemies to those same factions
+        // Add BlackDiv as enemies to those same factions (USEC removed)
         factionService.AddEnemyByFaction("savage", "blackdiv");
         factionService.AddEnemyByFaction("rogues", "blackdiv");
-        factionService.AddEnemyByFaction("usec", "blackdiv");
         factionService.AddEnemyByFaction("bear", "blackdiv");
         factionService.AddEnemyByFaction("infected", "blackdiv");
+
+        // BD and USEC are mutually friendly
+        factionService.AddFriendlyByFaction(typeList, "usec");
+        factionService.AddFriendlyByFaction("usec", "blackdiv");
 
         factionService.AddRevengeByFaction(typeList, "blackdiv");
 
