@@ -67,16 +67,20 @@ namespace BlackDiv.Behavior.Actions
 
             updateBotZone();
 
-            BotOwner.GoToPoint(huntManager.knownLocation, mustHaveWay: false);
+            var distSqr = BotOwner.Position.SqrDistance(huntManager.knownLocation);
+
+            if (distSqr > 5f * 5f)
+            {
+                BotOwner.GoToPoint(huntManager.knownLocation, mustHaveWay: false);
+            }
+            else
+            {
+                BotOwner.StopMove();
+            }
 
             if (BotOwner.Boss.IamBoss)
             {
                 huntManager.shouldRegroup = huntManager.CheckShouldRegroup();
-            }
-
-            if (BotOwner.Position.SqrDistance(huntManager.knownLocation) < 5f * 5f)
-            {
-                huntManager.shouldSearch = true;
             }
         }
 
