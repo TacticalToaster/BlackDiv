@@ -47,7 +47,7 @@ namespace BlackDiv.Components
 
             if (Time.time > locationTime && HasHuntTarget())
             {
-                locationTime = Time.time + 30f;
+                locationTime = Time.time + 2f;
 
                 knownLocation = huntTarget.Position;
             }

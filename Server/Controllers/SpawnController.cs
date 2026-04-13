@@ -61,7 +61,7 @@ public class SpawnController(
             var normalSpawn = new BossLocationSpawn
             {
                 BossName = "blackDivAssault",
-                BossChance = 15,
+                BossChance = 80,
                 BossDifficulty = "normal",
                 BossEscortAmount = "2,2,2,3,3,4",
                 BossEscortDifficulty = "normal",
@@ -80,7 +80,7 @@ public class SpawnController(
             };
             labs.Base.BossLocationSpawn.Add(normalSpawn);
 
-            if (randomUtil.GetChance100(20))
+            if (randomUtil.GetChance100(80))
             {
                 labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00632_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
@@ -108,7 +108,7 @@ public class SpawnController(
                 logger.Info("Added Black Division Gate1 spawn to Labs.");
             }
 
-            if (randomUtil.GetChance100(20))
+            if (randomUtil.GetChance100(80))
             {
                 labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00014_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");

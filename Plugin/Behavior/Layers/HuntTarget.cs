@@ -70,14 +70,8 @@ namespace BlackDiv.Behavior.Layers
                 nextActionReason = "ShouldRegroup";
                 return;
             }
-            if (huntManager.shouldSearch)
-            {
-                nextAction = typeof(SearchForTargetAction);
-                nextActionReason = "SearchingForTarget";
-                return;
-            }
             nextAction = typeof(HuntTargetAction);
-            nextActionReason = "HuntingTarget";
+            nextActionReason = "FollowingTarget";
         }
 
         public override bool IsCurrentActionEnding()

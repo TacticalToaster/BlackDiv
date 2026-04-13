@@ -38,9 +38,9 @@ namespace BlackDiv.Components
                 return;
             }
 
-            nextUpdate = Time.time + 240f;
+            nextUpdate = Time.time + 30f;
 
-            if (UnityEngine.Random.Range(0, 100) < 8 && unpickedHunts.Count > 0)
+            if (unpickedHunts.Count > 0)
             {
                 var randomEvent = unpickedHunts.Random();
                 if (randomEvent == null) return;
@@ -64,7 +64,7 @@ namespace BlackDiv.Components
 
             unpickedHunts = [.. huntEvents.Keys];
 
-            nextUpdate = Time.time + 240f;
+            nextUpdate = Time.time + 30f;
 
             Singleton<IBotGame>.Instance.BotsController.BotSpawner.OnBotCreated += OnBotCreated;
         }
