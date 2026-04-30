@@ -24,6 +24,9 @@
 		<Reference Include="DrakiaXYZ-BigBrain">
 		  <HintPath>..\..\plugins\DrakiaXYZ-BigBrain.dll</HintPath>
 		</Reference>
+		<Reference Include="MoreBotsPlugin">
+		  <HintPath>..\Reference\MoreBotsAPI\MoreBotsPlugin.dll</HintPath>
+		</Reference>
 		<Reference Include="SAIN">
 		  <HintPath>..\..\plugins\SAIN\SAIN.dll</HintPath>
 		</Reference>
@@ -105,6 +108,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Behavior\Layers\" />
+	  <Folder Include="Components\" />
 	  <Folder Include="Controllers\" />
 	  <Folder Include="Models\" />
 	</ItemGroup>

@@ -1,5 +1,4 @@
 ﻿using EFT;
-using BlackDiv.Components;
 using SPT.Reflection.Patching;
 using System;
 using System.Collections.Generic;
@@ -22,7 +21,7 @@ namespace BlackDiv.Patches
         {
             Plugin.LogSource.LogInfo("BotsController initialized, initializing Managers...");
             //MonoBehaviourSingleton<RuafCheckpointManager>.Instance.InitRaid();
-            MonoBehaviourSingleton<HuntManager>.Instance.InitRaid();
+            //MonoBehaviourSingleton<HuntManager>.Instance.InitRaid();
         }
     }
 }

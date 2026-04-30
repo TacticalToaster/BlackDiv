@@ -61,7 +61,7 @@ public class SpawnController(
             var normalSpawn = new BossLocationSpawn
             {
                 BossName = "blackDivAssault",
-                BossChance = 15,
+                BossChance = mainConfig.spawns.labsStartChance,
                 BossDifficulty = "normal",
                 BossEscortAmount = "2,2,2,3,3,4",
                 BossEscortDifficulty = "normal",
@@ -75,12 +75,34 @@ public class SpawnController(
                 SpawnMode = ["regular", "pve"],
                 Supports = null,
                 Time = -1,
-                TriggerId = "",
-                TriggerName = ""
+                //TriggerId = "byQuest",
+                //TriggerName = "byQuest"
             };
             labs.Base.BossLocationSpawn.Add(normalSpawn);
+            
+            /*var testSpawn = new BossLocationSpawn
+            {
+                BossName = "bossKilla",
+                BossChance = 100,
+                BossDifficulty = "normal",
+                BossEscortAmount = "1",
+                BossEscortDifficulty = "normal",
+                BossEscortType = "bossTagilla",
+                IsBossPlayer = false,
+                BossZone = "BotZoneFloor2,BotZoneFloor1,BotZoneBasement",
+                Delay = 0,
+                ForceSpawn = false,
+                IgnoreMaxBots = false,
+                IsRandomTimeSpawn = false,
+                SpawnMode = ["regular", "pve"],
+                Supports = null,
+                Time = -1,
+                TriggerId = "5936d90786f7742b1420ba5b",
+                TriggerName = "byQuest"
+            };
+            labs.Base.BossLocationSpawn.Add(testSpawn);*/
 
-            if (randomUtil.GetChance100(20))
+            if (randomUtil.GetChance100(mainConfig.spawns.labsGateChances))
             {
                 labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00632_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
@@ -108,7 +130,7 @@ public class SpawnController(
                 logger.Info("Added Black Division Gate1 spawn to Labs.");
             }
 
-            if (randomUtil.GetChance100(20))
+            if (randomUtil.GetChance100(mainConfig.spawns.labsGateChances))
             {
                 labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00014_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
@@ -151,7 +173,7 @@ public class SpawnController(
                 // Remove existing spawns
                 spawns.RemoveAll(x => x.BossName.Contains("blackDiv"));
                 
-                AdjustHuntSpawnsForMap(map, spawns);
+                AdjustHuntSpawnsForMap(map, spawns, locations.GetDictionary()[locations.GetMappedKey(map)]);
             }
         }
         catch (Exception ex)
@@ -161,9 +183,9 @@ public class SpawnController(
         }
     }
 
-    private void AdjustPatrolSpawnsForMap(string map, MapConfig mapConfig, MainConfig mainConfig, List<BossLocationSpawn> spawns)
+    private void AdjustPatrolSpawnsForMap(string map, MainConfig mainConfig, List<BossLocationSpawn> spawns)
     {
-        var patrolConfig = mapConfig.patrol;
+        /*var patrolConfig = mapConfig.patrol;
 
         logger.Info($"Enabling Black Division patrols for {map}.");
         var validZones = new List<string>(patrolConfig.patrolZones);
@@ -171,7 +193,7 @@ public class SpawnController(
         for (int i = 0; i < patrolConfig.patrolAmount; i++)
         {
             var patrolSize = randomUtil.GetInt(patrolConfig.patrolMin, patrolConfig.patrolMax);
-            var patrol = GeneratePatrol(patrolSize, mainConfig.debug.spawnAlways ? 100 : patrolConfig.patrolChance);
+            var patrol = GeneratePatrol(patrolSize,  100);
 
             patrol.BossZone = randomUtil.GetArrayValue(validZones);
             validZones.Remove(patrol.BossZone);
@@ -183,41 +205,41 @@ public class SpawnController(
 
             patrol.Time = randomUtil.GetInt(patrolConfig.patrolTimeMin, patrolConfig.patrolTimeMax);
 
-            if (mainConfig.debug.spawnInstantlyAlways)
-            {
-                logger.Info($"Instantly spawning Black Division team for {map}.");
-                patrol.Time = -1;
-            }
-
             spawns.Add(patrol);
 
             logger.Info($"Added ({patrolConfig.patrolChance}% chance) Black Division team of size {patrolSize} to {map} in zone {patrol.BossZone} with a spawn time of {patrol.Time} seconds.");
-        }
+        }*/
     }
 
-    private void AdjustHuntSpawnsForMap(string map, List<BossLocationSpawn> spawns)
+    private void AdjustHuntSpawnsForMap(string map, List<BossLocationSpawn> spawns, Location location)
     {
-        spawns.RemoveAll(x => x.TriggerId == "blackDivHunt");
-        AddHuntToMap(map, spawns);
+        spawns.RemoveAll(x => x.TriggerId == "hunt" && x.BossName.Contains("blackDiv"));
+        AddHuntToMap(map, spawns, location);
     }
 
-    private void AddHuntToMap(string map, List<BossLocationSpawn> spawns)
+    private void AddHuntToMap(string map, List<BossLocationSpawn> spawns, Location location)
     {
         logger.Info($"Enabling Black Division hunt for {map}.");
 
         var patrolSize = randomUtil.GetInt(3, 4);
         var patrol = GeneratePatrol(patrolSize, 100, false);
 
-        patrol.Time = -1;
+        var factor = randomUtil.GetBiasedRandomNumber(0, 100, 10, 1.5) / 100;
+        var timeLimit = (location.Base.EscapeTimeLimit ?? 45) * 60;
+        var timeFactor = Double.Lerp(configController.ModConfig.spawns.minTime,
+            configController.ModConfig.spawns.maxTime, factor);
+        
+        patrol.Time = double.Round(timeFactor * timeLimit);
+        patrol.BossChance = configController.ModConfig.spawns.chance;
 
         patrol.BossZone = "";
         patrol.TriggerName = "botEvent";
-        patrol.TriggerId = "blackDivHunt";
+        patrol.TriggerId = "hunt";
         patrol.ForceSpawn = true;
 
         spawns.Add(patrol);
 
-        logger.Info($"Added Black Division Hunt of size {patrolSize} to {map} in zone {patrol.BossZone} with a spawn time of {patrol.Time} seconds.");
+        logger.Info($"Added Black Division Hunt of size {patrolSize} to {map} in zone {patrol.BossZone} with a spawn time of {patrol.Time} seconds. {factor} {timeFactor} {timeLimit}");
     }
 
     private BossLocationSpawn GeneratePatrol(int patrolSize, float chance, bool isPatrol = true)

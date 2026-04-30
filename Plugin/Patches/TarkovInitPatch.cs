@@ -1,7 +1,7 @@
 ﻿using DrakiaXYZ.BigBrain.Brains;
 using EFT;
 using EFT.InputSystem;
-using BlackDiv.Behavior.Layers;
+using MoreBotsAPI.Behavior.Layers;
 using SPT.Reflection.Patching;
 using System.Collections.Generic;
 using System.Reflection;

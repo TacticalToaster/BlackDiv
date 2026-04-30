@@ -1,0 +1,25 @@
+﻿{
+  "debug": {
+    "logs": false
+  },
+  "spawns": {
+    "chance": 100,
+    "minTime": 0.01,
+    "maxTime": 0.1,
+    "labsGateChances": 20,
+    "labsStartChance": 15,
+    "huntMaps": [
+      "woods",
+      "bigmap",
+      "tarkovstreets",
+      "shoreline",
+      "lighthouse",
+      "factory4_day",
+      "factory4_night",
+      "interchange",
+      "sandbox_high",
+      "rezervbase",
+      "labyrinth"
+    ]
+  }
+}

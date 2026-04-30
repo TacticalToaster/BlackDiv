@@ -12,7 +12,7 @@ public class RUAFLogger
         ISptLogger<RUAFLogger> logger,
         ConfigController configController)
     {
-        _enableLogs = false;
+        _enableLogs = configController.ModConfig.debug.logs;
         _logger = logger;
     }
 

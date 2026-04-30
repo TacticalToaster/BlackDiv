@@ -139,8 +139,7 @@ public class BlackDivFaction(
 {
     public async Task OnLoad()
     {
-        // Create the new BlackDiv faction
-        factionService.Factions.Add("blackdiv", new Faction()
+        var blackDivFaction = new Faction()
         {
             Name = "blackdiv",
             BotTypes =
@@ -149,8 +148,12 @@ public class BlackDivFaction(
                 (WildSpawnType)848421,
                 (WildSpawnType)848422,
                 (WildSpawnType)848423
-            }
-        });
+            },
+            RevengeAfterRaids = false
+        };
+        
+        // Create the new BlackDiv faction
+        factionService.Factions.Add("blackdiv", blackDivFaction);
 
         await Task.CompletedTask;
     }
