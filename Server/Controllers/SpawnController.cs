@@ -158,7 +158,7 @@ public class SpawnController(
                 logger.Info("Added Black Division Gate2 spawn to Labs.");
             }
 
-            foreach (var map in spawnMaps)
+            foreach (var map in mainConfig.spawns.huntMaps)
             {
                 logger.Info($"Adjusting Black Division spawns for {map}.");
 
