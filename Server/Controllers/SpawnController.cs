@@ -233,7 +233,7 @@ public class SpawnController(
         patrol.BossChance = configController.ModConfig.spawns.chance;
 
         patrol.BossZone = "";
-        patrol.TriggerName = "botEvent";
+        patrol.TriggerName = string.Empty;
         patrol.TriggerId = "hunt";
         patrol.ForceSpawn = true;
 
