@@ -1,0 +1,6 @@
+{
+  "SALVAGE_ZONE": "Salvage",
+  "YOU_NEED_ITEM_TO_SALVAGE": "You need a {0} to salvage",
+  "CANT_SALVAGE_WHILE_MOVING": "You can't salvage while moving",
+  "SALVAGING_OBJECTIVE": "Salvaging objective {0:F1}"
+}

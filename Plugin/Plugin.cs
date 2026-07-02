@@ -11,6 +11,7 @@ namespace BlackDiv
 {
     [BepInDependency("xyz.drakia.bigbrain", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("me.sol.sain", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.morebotsapi.tacticaltoaster")]
     [BepInPlugin(ClientInfo.GUID, ClientInfo.PluginName, ClientInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {
@@ -27,7 +28,7 @@ namespace BlackDiv
             //new BotsControllerInitPatch().Enable();
             new BDNvgPatch().Enable();
 
-            var bdEnums = new List<int> { 848421 }
+            var bdEnums = new List<int> { 848420, 848421, 848422, 848423, 848424 }
                 .ConvertAll(x => (WildSpawnType)x);
             
             MonoBehaviourSingleton<HuntManager>.Instance.AddHuntRoles(bdEnums, [WildSpawnType.pmcUSEC, WildSpawnType.pmcBEAR]);
