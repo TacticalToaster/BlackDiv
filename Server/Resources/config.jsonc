@@ -6,6 +6,8 @@
     "chance": 25,
     "minTime": 0.1,
     "maxTime": 0.8,
+    "minHuntSize": 3,
+    "maxHuntSize": 5,
     "labsGateChances": 20,
     "labsStartChance": 15,
     "huntMaps": [

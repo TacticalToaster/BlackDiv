@@ -75,7 +75,7 @@ public class SpawnController(
                 SpawnMode = ["regular", "pve"],
                 Supports = null,
                 Time = -1,
-                //TriggerId = "byQuest",
+                TriggerId = "hunt"
                 //TriggerName = "byQuest"
             };
             labs.Base.BossLocationSpawn.Add(normalSpawn);
@@ -221,7 +221,7 @@ public class SpawnController(
     {
         logger.Info($"Enabling Black Division hunt for {map}.");
 
-        var patrolSize = randomUtil.GetInt(3, 4);
+        var patrolSize = randomUtil.GetInt(configController.ModConfig.spawns.minHuntSize, configController.ModConfig.spawns.maxHuntSize);
         var patrol = GeneratePatrol(patrolSize, 100, false);
 
         var factor = randomUtil.GetBiasedRandomNumber(0, 100, 10, 1.5) / 100;
