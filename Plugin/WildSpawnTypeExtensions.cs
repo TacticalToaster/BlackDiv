@@ -9,11 +9,11 @@ namespace BlackDiv
 {
     public static class WildSpawnTypeExtensions
     {
-        public static List<int> TypeEnums = new List<int> { 848420, 848421, 848422, 848423, 848424 };
+        public static List<int> BDTypeEnums = new List<int> { 848420, 848421, 848422, 848423, 848424 };
 
         public static bool IsBlackDiv(WildSpawnType type)
         {
-            return TypeEnums.Contains((int)type);
+            return BDTypeEnums.Contains((int)type);
         }
     }
 }

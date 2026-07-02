@@ -16,6 +16,8 @@ public class SpawnConfig
     public float chance { get; set; }
     public float minTime { get; set; }
     public float maxTime { get; set; }
+    public int minHuntSize { get; set; }
+    public int maxHuntSize { get; set; }
     public float labsGateChances { get; set; }
     public float labsStartChance { get; set; }
     public List<string> huntMaps { get; set; }

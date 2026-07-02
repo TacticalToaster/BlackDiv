@@ -14,11 +14,12 @@ public class RUAFLogger
     {
         _enableLogs = configController.ModConfig.debug.logs;
         _logger = logger;
+        configController.logger = this;
     }
 
-    public void Info(string message)
+    public void Info(string message, bool force = false)
     {
-        if (_enableLogs)
+        if (_enableLogs || force)
         {
             _logger.Info($"[BlackDiv Mod] {message}");
         }
