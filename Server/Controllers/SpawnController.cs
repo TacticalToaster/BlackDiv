@@ -33,26 +33,26 @@ public class SpawnController(
             var mainConfig = configController.ModConfig;
 
             var labs = locations.Laboratory;
-            labs.Base.BossLocationSpawn.RemoveAll(x => x.BossName.Contains("blackDiv"));
-
-            var gate = labs.Base.BossLocationSpawn.Find(x => x.TriggerId == "autoId_00014_EXFIL");
-
+            labs.Base.BossLocationSpawn.RemoveAll(x => x.BossName != null && x.BossName.Contains("blackDiv"));
+            
+            var gate = labs.Base.BossLocationSpawn.Find(x => x?.TriggerId?.ToString() == "autoId_00014_EXFIL");
+            
             if (gate != null)
             {
                 gate1 = gate;
             }
-            else
+            else if (gate1 != null)
             {
                 labs.Base.BossLocationSpawn.Add(gate1);
             }
 
-            gate = labs.Base.BossLocationSpawn.Find(x => x.TriggerId == "autoId_00632_EXFIL");
+            gate = labs.Base.BossLocationSpawn.Find(x => x?.TriggerId?.ToString() == "autoId_00632_EXFIL");
 
             if (gate != null)
             {
                 gate2 = gate;
             }
-            else
+            else if (gate2 != null)
             {
                 labs.Base.BossLocationSpawn.Add(gate2);
             }
@@ -104,7 +104,7 @@ public class SpawnController(
 
             if (randomUtil.GetChance100(mainConfig.spawns.labsGateChances))
             {
-                labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00632_EXFIL");
+                labs.Base.BossLocationSpawn.RemoveAll(x => x?.TriggerId?.ToString() == "autoId_00632_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
                 var exfilSpawn = new BossLocationSpawn
                 {
@@ -132,7 +132,7 @@ public class SpawnController(
 
             if (randomUtil.GetChance100(mainConfig.spawns.labsGateChances))
             {
-                labs.Base.BossLocationSpawn.RemoveAll(x => x.TriggerId == "autoId_00014_EXFIL");
+                labs.Base.BossLocationSpawn.RemoveAll(x => x?.TriggerId?.ToString() == "autoId_00014_EXFIL");
                 logger.Info("Adding Black Division EXFIL spawn to Labs.");
                 var exfilSpawn = new BossLocationSpawn
                 {
