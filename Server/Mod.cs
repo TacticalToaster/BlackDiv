@@ -18,7 +18,7 @@ public record ModMetadata : AbstractModMetadata
     public override string Name { get; init; } = "Black Division [REDACTED] Home";
     public override string Author { get; init; } = "TacticalToaster";
     public override List<string>? Contributors { get; init; } = new() { };
-    public override SemanticVersioning.Version Version { get; init; } = new(1, 1, 3);
+    public override SemanticVersioning.Version Version { get; init; } = new(2, 0, 0);
     public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
     public override List<string>? Incompatibilities { get; init; }
     public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; } = new()
@@ -73,7 +73,8 @@ public class BlackDivServer(
             "blackDivLead",
             "blackDivAssault",
             "blackDivBreacher",
-            "blackDivSupport"
+            "blackDivSupport",
+            "bossWedge"
         };
 
         var typeDictionary = new Dictionary<int, string>()
@@ -81,13 +82,15 @@ public class BlackDivServer(
             { 848420, "blackDivLead" },
             { 848421, "blackDivAssault" },
             { 848422, "blackDivBreacher" },
-            { 848423, "blackDivSupport" }
+            { 848423, "blackDivSupport" },
+            { 848424 , "bossWedge" },
         };
 
         var assembly = Assembly.GetExecutingAssembly();
 
         // Load base bot types using a shared type
         await moreBotsLib.LoadBotsShared(assembly, "blackDiv", typeList);
+        await moreBotsLib.LoadBots(assembly);
 
         await commonLib.CustomBotLoadoutService.CreateCustomBotLoadouts(assembly);
 
