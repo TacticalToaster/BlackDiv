@@ -1,0 +1,22 @@
+{
+  "manifest": [
+    {
+      "key": "staticspawns/hh60.bundle",
+      "dependencies": [
+        "assets/commonassets/physics/physicsmaterials.bundle",
+        "shaders",
+        "cubemaps"
+      ]
+    },
+    {
+      "key": "voices/male01/Audio/male01_audio.bundle",
+      "dependencies": []
+    },
+    {
+      "key": "voices/male01/Voices/male01_voice.bundle",
+      "dependencies": [
+        "voices/male01/Audio/male01_audio.bundle"
+      ]
+    }
+  ]
+}

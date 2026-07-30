@@ -1,0 +1,17 @@
+[
+    {
+        "locationID": "woods",
+        "bundleName": "hh60",
+        "prefabName": "HH60",
+        "position": {
+            "x": -517.266,
+            "y": 35.040,
+            "z": -349.121
+        },
+        "rotation": {
+            "x": 270.0,
+            "y": 0.0,
+            "z": 0.0
+        }
+    }
+]

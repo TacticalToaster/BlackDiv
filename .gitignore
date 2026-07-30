@@ -3,3 +3,5 @@ obj/
 Connected Services/
 .vs/
 dist/
+/Server/Resources/bundles
+*.bundle

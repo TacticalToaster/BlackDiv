@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿#if !UNITY_EDITOR
+using System.Reflection;
 using EFT;
 using SPT.Reflection.Patching;
 
@@ -29,3 +30,4 @@ internal class BDNvgPatch : ModulePatch
         return true;
     }
 }
+#endif

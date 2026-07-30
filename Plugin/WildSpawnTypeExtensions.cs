@@ -1,4 +1,5 @@
-﻿using EFT;
+﻿#if !UNITY_EDITOR
+using EFT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,3 +18,4 @@ namespace BlackDiv
         }
     }
 }
+#endif

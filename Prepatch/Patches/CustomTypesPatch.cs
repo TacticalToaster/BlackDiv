@@ -1,4 +1,5 @@
-﻿using BepInEx.Logging;
+﻿#if !UNITY_EDITOR
+using BepInEx.Logging;
 using Mono.Cecil;
 using MoreBotsAPI;
 using System.Collections.Generic;
@@ -132,9 +133,20 @@ namespace BlackDiv.Prepatch
             bot.SetSAINSettings(settings);
 
             CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
+            
+            // HH-60 Gunner
+            bot = new CustomWildSpawnType(848425, "shooterBdHh60", "BlackDiv", baseBrainInt, true, true, false);
+
+            bot.SetCountAsBossForStatistics(false);
+            bot.SetShouldUseFenceNoBossAttack(false, false);
+            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
+
+            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
 
             CustomWildSpawnTypeManager.AddSuitableGroup(new List<int> { 848420, 848421, 848422, 848423, 848424 });
+            CustomWildSpawnTypeManager.AddSuitableGroup(new List<int> { 848425 });
         }
 
     }
 }
+#endif

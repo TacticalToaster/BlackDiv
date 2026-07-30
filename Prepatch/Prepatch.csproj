@@ -6,8 +6,13 @@
     <Description>BlackDiv Prepatch needed to add custom bots to the client.</Description>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
-    <Configurations>Debug;Release</Configurations>
+    <Configurations>Debug;Release;Unity</Configurations>
     <RootNamespace>BlackDiv</RootNamespace>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Unity' ">
+    <DefineConstants>TRACE;UNITY_EDITOR;</DefineConstants>
   </PropertyGroup>
   
   <ItemGroup>

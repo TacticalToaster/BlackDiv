@@ -28,7 +28,7 @@ public record ModMetadata : AbstractModMetadata
         { "com.wtt.contentbackport",  new SemanticVersioning.Range(">=1.0.0") }
     };
     public override string? Url { get; init; }
-    public override bool? IsBundleMod { get; init; }
+    public override bool? IsBundleMod { get; init; } = true;
     public override string License { get; init; } = "MIT";
 }
 
@@ -74,7 +74,8 @@ public class BlackDivServer(
             "blackDivAssault",
             "blackDivBreacher",
             "blackDivSupport",
-            "bossWedge"
+            "bossWedge",
+            "shooterBdHh60"
         };
 
         var typeDictionary = new Dictionary<int, string>()
@@ -84,9 +85,12 @@ public class BlackDivServer(
             { 848422, "blackDivBreacher" },
             { 848423, "blackDivSupport" },
             { 848424 , "bossWedge" },
+            { 848425,  "shooterBdHh60" },
         };
 
         var assembly = Assembly.GetExecutingAssembly();
+        
+        await commonLib.CustomVoiceService.CreateCustomVoices(assembly);
 
         // Load base bot types using a shared type
         await moreBotsLib.LoadBotsShared(assembly, "blackDiv", typeList);
@@ -99,6 +103,8 @@ public class BlackDivServer(
             await commonLib.CustomBotLoadoutService.CreateCustomBotLoadouts(assembly,
                 Path.Join("db", "ModBotLoadouts", "Armory"));
         }
+
+        await customBotTypeService.LoadBotTypeReplace(assembly, "shooterbdhh60", ["shooterBdHh60"]);
 
         customBotTypeService.AddCustomWildSpawnTypeNames(typeDictionary);
 
@@ -128,6 +134,8 @@ public class BlackDivServer(
         // Use WTT to add locales
         await commonLib.CustomLocaleService.CreateCustomLocales(assembly);
 
+        await commonLib.CustomStaticSpawnService.CreateCustomStaticSpawns(assembly);
+
         // Add to spawns
         spawnController.AdjustAllSpawns();
 
@@ -150,7 +158,9 @@ public class BlackDivFaction(
                 (WildSpawnType)848420,
                 (WildSpawnType)848421,
                 (WildSpawnType)848422,
-                (WildSpawnType)848423
+                (WildSpawnType)848423,
+                (WildSpawnType)848424,
+                (WildSpawnType)848425,
             },
             RevengeAfterRaids = false
         };

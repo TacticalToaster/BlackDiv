@@ -1,0 +1,10 @@
+{
+  "6a526068b43a276301fd44ed": {
+    "locales": {
+      "en": "Male01"
+    },
+    "name": "male01",
+    "bundlePath": "voices/male01/Voices/male01_voice.bundle",
+    "addVoiceToPlayer": true
+  }
+}

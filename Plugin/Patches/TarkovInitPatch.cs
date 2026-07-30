@@ -1,4 +1,5 @@
-﻿using DrakiaXYZ.BigBrain.Brains;
+﻿#if !UNITY_EDITOR
+using DrakiaXYZ.BigBrain.Brains;
 using EFT;
 using EFT.InputSystem;
 using MoreBotsAPI.Behavior.Layers;
@@ -26,3 +27,4 @@ namespace BlackDiv.Patches
         }
     }
 }
+#endif

@@ -1,4 +1,5 @@
-﻿using DrakiaXYZ.BigBrain.Brains;
+﻿#if !UNITY_EDITOR
+using DrakiaXYZ.BigBrain.Brains;
 using EFT;
 using System.Text;
 
@@ -66,3 +67,4 @@ namespace BlackDiv.Behavior.Actions
         public abstract CustomNavigationPoint GetGoToPoint();
     }
 }
+#endif

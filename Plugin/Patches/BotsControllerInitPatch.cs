@@ -1,4 +1,5 @@
-﻿using EFT;
+﻿#if !UNITY_EDITOR
+using EFT;
 using SPT.Reflection.Patching;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using BlackDiv.Controllers;
 
 namespace BlackDiv.Patches
 {
@@ -20,8 +22,9 @@ namespace BlackDiv.Patches
         protected static void PatchPostfix(BotsController __instance)
         {
             Plugin.LogSource.LogInfo("BotsController initialized, initializing Managers...");
-            //MonoBehaviourSingleton<RuafCheckpointManager>.Instance.InitRaid();
+            MonoBehaviourSingleton<BlackDivController>.Instance.InitRaid(__instance);
             //MonoBehaviourSingleton<HuntManager>.Instance.InitRaid();
         }
     }
 }
+#endif

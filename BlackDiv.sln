@@ -7,20 +7,33 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prepatch", "Prepatch\Prepat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{2CDFD586-355F-346C-92BF-961D4783A12E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity", "Unity\Unity.csproj", "{F428EB30-4E81-4443-94FF-7E2B6841223C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Unity|Any CPU = Unity|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{27FE9EA3-B3CC-42BB-F737-5BC8A57D5D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27FE9EA3-B3CC-42BB-F737-5BC8A57D5D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27FE9EA3-B3CC-42BB-F737-5BC8A57D5D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27FE9EA3-B3CC-42BB-F737-5BC8A57D5D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FE9EA3-B3CC-42BB-F737-5BC8A57D5D91}.Unity|Any CPU.ActiveCfg = Unity|Any CPU
+		{27FE9EA3-B3CC-42BB-F737-5BC8A57D5D91}.Unity|Any CPU.Build.0 = Unity|Any CPU
 		{2CDFD586-355F-346C-92BF-961D4783A12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CDFD586-355F-346C-92BF-961D4783A12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CDFD586-355F-346C-92BF-961D4783A12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CDFD586-355F-346C-92BF-961D4783A12E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDFD586-355F-346C-92BF-961D4783A12E}.Unity|Any CPU.ActiveCfg = Unity|Any CPU
+		{2CDFD586-355F-346C-92BF-961D4783A12E}.Unity|Any CPU.Build.0 = Unity|Any CPU
+		{F428EB30-4E81-4443-94FF-7E2B6841223C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F428EB30-4E81-4443-94FF-7E2B6841223C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F428EB30-4E81-4443-94FF-7E2B6841223C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F428EB30-4E81-4443-94FF-7E2B6841223C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F428EB30-4E81-4443-94FF-7E2B6841223C}.Unity|Any CPU.ActiveCfg = Debug|Any CPU
+		{F428EB30-4E81-4443-94FF-7E2B6841223C}.Unity|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

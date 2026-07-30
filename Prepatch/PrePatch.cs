@@ -1,4 +1,5 @@
-﻿using BepInEx;
+﻿#if !UNITY_EDITOR
+using BepInEx;
 using System.Collections.Generic;
 
 namespace BlackDiv.Prepatch
@@ -15,3 +16,4 @@ namespace BlackDiv.Prepatch
         }
     }
 }
+#endif

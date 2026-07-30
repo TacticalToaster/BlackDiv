@@ -1,0 +1,17 @@
+{
+  "difficulty": {
+    "all": {
+      "Core": {
+        "CanGrenade": false
+      },
+      "Shoot": {
+        "BASE_AUTOMATIC_TIME": 1,
+        "WAIT_NEXT_SINGLE_SHOT": 0.1,
+        "WAIT_NEXT_SINGLE_SHOT_LONG_MAX": 1.3,
+        "WAIT_NEXT_SINGLE_SHOT_LONG_MIN": 0.1,
+        "WAIT_NEXT_STATIONARY_GRENADE": 1,
+        "FINGER_HOLD_SINGLE_SHOT": 0.3
+      }
+    }
+  }
+}
