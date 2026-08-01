@@ -2022,7 +2022,9 @@
         "TIME_TO_FIND_ENEMY": 22,
         "TIME_TO_FORGOR_ABOUT_ENEMY_SEC": 52,
         "TIME_TO_RUN_TO_COVER_CAUSE_SHOOT_SEC": 15,
-        "WARN_BOT_TYPES": []
+        "WARN_BOT_TYPES": [],
+        "CHANCE_TO_IGNORE_TRIPWIRE": 100,
+        "IGNORE_TRAP": true
       },
       "Move": {
         "BASESTART_SLOW_DIST": 1.1,
