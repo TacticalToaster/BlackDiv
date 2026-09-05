@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using EFT;
 using SPT.Reflection.Patching;
 
@@ -8,22 +8,25 @@ internal class BDNvgPatch : ModulePatch
 {
     protected override MethodBase GetTargetMethod()
     {
-        return typeof(BotNightVisionData).GetMethod(nameof(BotNightVisionData.method_1), BindingFlags.Public | BindingFlags.Instance);
+        return typeof(BotNightVisionData).GetMethod(nameof(BotNightVisionData.MoveToHeadPocket), BindingFlags.Public | BindingFlags.Instance);
     }
 
     [PatchPrefix]
     protected static bool PatchPostfix(BotNightVisionData __instance)
     {
-        if (!WildSpawnTypeExtensions.IsBlackDiv(__instance.BotOwner_0.Profile.Info.Settings.Role)) return false;
+        // Harmony prefixes must allow ordinary roles through. The old early return
+        // skipped the entire vanilla NVG operation for every non-BlackDiv bot.
+        // Only the custom faction's state is adjusted before vanilla processing.
+        if (!WildSpawnTypeExtensions.IsBlackDiv(__instance._owner.Profile.Info.Settings.Role)) return true;
 
-        if (__instance.StopTryingMove) return true;
+        if (__instance._stopTryingMove) return true;
         
-        __instance.StopTryingMove = true;
+        __instance._stopTryingMove = true;
         __instance.UsingNow = false;
         
         if (__instance.NightVisionItem.Togglable.On)
         {
-            __instance.BotOwner_0.GetPlayer.InventoryController.TryRunNetworkTransaction(__instance.NightVisionItem.Togglable.Set(false, true, false), null);
+            __instance._owner.GetPlayer.InventoryController.TryRunNetworkTransaction(__instance.NightVisionItem.Togglable.Set(false, true, false), null);
         }
         
         return true;

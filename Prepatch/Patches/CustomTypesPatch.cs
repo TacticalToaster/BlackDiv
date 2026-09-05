@@ -1,4 +1,4 @@
-﻿using BepInEx.Logging;
+using BepInEx.Logging;
 using Mono.Cecil;
 using MoreBotsAPI;
 using System.Collections.Generic;

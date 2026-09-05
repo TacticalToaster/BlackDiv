@@ -1,7 +1,9 @@
+using SPTarkov.Server.Core.Models.Spt.Tables;
+using SPTarkov.Server.Core.Models.Eft.Match;
+using SPTarkov.Server.Core.Models.Eft.Profile;
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.Models.Eft.Common;
 using SPTarkov.Server.Core.Models.Spt.Config;
-using SPTarkov.Server.Core.Services;
 using SPTarkov.Server.Core.Utils;
 using SPTarkov.Server.Core.Utils.Json;
 
@@ -12,7 +14,7 @@ public class SpawnController(
     JsonUtil jsonUtil,
     RandomUtil randomUtil,
     ConfigController configController,
-    DatabaseService databaseService,
+    LocationTable locationTable,
     RUAFLogger logger,
     HttpResponseUtil httpResponse
 )
@@ -28,8 +30,8 @@ public class SpawnController(
         {
             //return;
 
-            var tables = databaseService.GetTables();
-            var locations = databaseService.GetLocations();
+
+            var locations = locationTable;
             var mainConfig = configController.ModConfig;
 
             var labs = locations.Laboratory;

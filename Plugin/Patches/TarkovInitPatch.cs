@@ -1,4 +1,4 @@
-﻿using DrakiaXYZ.BigBrain.Brains;
+using DrakiaXYZ.BigBrain.Brains;
 using EFT;
 using EFT.InputSystem;
 using MoreBotsAPI.Behavior.Layers;
@@ -16,7 +16,7 @@ namespace BlackDiv.Patches
         }
 
         [PatchPostfix]
-        protected static void PatchPostfix(IAssetsManager assetsManager, InputTree inputTree)
+        protected static void PatchPostfix(EFT.AssetsManager.IAssetsManager assetsManager, InputTree inputTree)
         {
             var brainList = new List<string>() { "PMC", "ExUsec", "Assault", "PmcUsec", "PmcBear", "PmcUSEC", "PmcBEAR" };
             var typesList = new List<int>() { 848420, 848421, 848422, 848423, 848424 }.ConvertAll(x => (WildSpawnType)x);

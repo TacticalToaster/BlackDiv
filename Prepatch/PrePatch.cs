@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using System.Collections.Generic;
 
 namespace BlackDiv.Prepatch
