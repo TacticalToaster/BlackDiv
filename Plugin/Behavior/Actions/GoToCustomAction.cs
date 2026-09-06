@@ -6,14 +6,14 @@ namespace BlackDiv.Behavior.Actions
 {
     public abstract class GoToCustomAction : CustomLogic
     {
-        private GClass395 baseSteeringLogic;
-        private GClass212 goToCoverPoint;
-        private GClass31 goToData;
+        private LookAround baseSteeringLogic;
+        private GoToCoverPoint goToCoverPoint;
+        private MoveToCoverActionResultData goToData;
 
         public GoToCustomAction(BotOwner botOwner) : base(botOwner)
         {
-            goToCoverPoint = new GClass212(BotOwner);
-            baseSteeringLogic = new GClass395();
+            goToCoverPoint = new GoToCoverPoint(BotOwner);
+            baseSteeringLogic = new LookAround();
         }
 
         public override void Start()

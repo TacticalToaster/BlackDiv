@@ -1,6 +1,7 @@
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.Models.Eft.Common;
 using SPTarkov.Server.Core.Models.Spt.Config;
+using SPTarkov.Server.Core.Models.Spt.Tables;
 using SPTarkov.Server.Core.Services;
 using SPTarkov.Server.Core.Utils;
 using SPTarkov.Server.Core.Utils.Json;
@@ -12,7 +13,7 @@ public class SpawnController(
     JsonUtil jsonUtil,
     RandomUtil randomUtil,
     ConfigController configController,
-    DatabaseService databaseService,
+    LocationTable locationTable,
     RUAFLogger logger,
     HttpResponseUtil httpResponse
 )
@@ -27,12 +28,9 @@ public class SpawnController(
         try
         {
             //return;
-
-            var tables = databaseService.GetTables();
-            var locations = databaseService.GetLocations();
             var mainConfig = configController.ModConfig;
 
-            var labs = locations.Laboratory;
+            var labs = locationTable.Laboratory;
             labs.Base.BossLocationSpawn.RemoveAll(x => x.BossName != null && (x.BossName.Contains("blackDiv") || x.BossName.Contains("bossWedge")));
             
             var gate = labs.Base.BossLocationSpawn.Find(x => x?.TriggerId?.ToString() == "autoId_00014_EXFIL");
@@ -162,18 +160,18 @@ public class SpawnController(
             {
                 logger.Info($"Adjusting Black Division spawns for {map}.");
 
-                if (!locations.GetDictionary().ContainsKey(locations.GetMappedKey(map)))
+                if (!locationTable.GetDictionary().ContainsKey(locationTable.GetMappedKey(map)))
                 {
                     logger.Info($"No location data found for {map}. Skipping Black Division spawn adjustment.");
                     continue;
                 }
                 
-                var spawns = locations.GetDictionary()[locations.GetMappedKey(map)].Base.BossLocationSpawn;
+                var spawns = locationTable.GetDictionary()[locationTable.GetMappedKey(map)].Base.BossLocationSpawn;
 
                 // Remove existing spawns
                 spawns.RemoveAll(x => x.BossName.Contains("blackDiv"));
                 
-                AdjustHuntSpawnsForMap(map, spawns, locations.GetDictionary()[locations.GetMappedKey(map)]);
+                AdjustHuntSpawnsForMap(map, spawns, locationTable.GetDictionary()[locationTable.GetMappedKey(map)]);
             }
         }
         catch (Exception ex)

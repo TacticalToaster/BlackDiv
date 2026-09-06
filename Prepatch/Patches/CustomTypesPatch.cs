@@ -1,161 +1,82 @@
-﻿using BepInEx.Logging;
-using Mono.Cecil;
+﻿using Mono.Cecil;
 using MoreBotsAPI;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 
 namespace BlackDiv.Prepatch
 {
     public static class WildSpawnTypePatch
     {
-        public static IEnumerable<string> TargetDLLs { get; } = new[] { "Assembly-CSharp.dll" };
+        private const int BaseBrainType = 9;
+
+        private const int LeadId = 848420;
+        private const int AssaultId = 848421;
+        private const int BreacherId = 848422;
+        private const int SupportId = 848423;
+        private const int WedgeId = 848424;
+        private const int IbId = 848426;
+
+        private static readonly List<int> ExcludedDifficulties = new()
+        {
+            0,
+            2,
+            3
+        };
+
+        private static readonly List<int> BlackDivGroup = new()
+        {
+            LeadId,
+            AssaultId,
+            BreacherId,
+            SupportId,
+            WedgeId,
+            IbId
+        };
+
+        public static IEnumerable<string> TargetDLLs { get; } = new[]
+        {
+            "Assembly-CSharp.dll"
+        };
 
         public static void Patch(ref AssemblyDefinition assembly)
         {
-            var brains = new List<string>() { "PMC", "ExUsec" };
-            var layers = new List<string>() {
-                "Request",
-                //"FightReqNull",
-                //"PeacecReqNull",
-                "KnightFight",
-                //"PtrlBirdEye",
-				"PmcBear",
-                "PmcUsec",
-                "ExURequest",
-                "StationaryWS"
-            };
+            RegisterBot(assembly, LeadId, "blackDivLead", "BlackDiv");
+            RegisterBot(assembly, AssaultId, "blackDivAssault", "BlackDiv");
+            RegisterBot(assembly, BreacherId, "blackDivBreacher", "BlackDiv");
+            RegisterBot(assembly, SupportId, "blackDivSupport", "BlackDiv");
 
-            int baseBrainInt = 9;//9;
+            RegisterBot(
+                assembly,
+                WedgeId,
+                "bossWedge",
+                "Boss",
+                countsAsBoss: true);
 
-            // lead
-            var bot = new CustomWildSpawnType(848420, "blackDivLead", "BlackDiv", baseBrainInt, true, true, false);
+            RegisterBot(assembly, IbId, "blackDivIb", "BlackDiv");
 
-            bot.SetCountAsBossForStatistics(false);
-            bot.SetShouldUseFenceNoBossAttack(false, false);
-            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
-
-            SAINSettings settings = new SAINSettings(bot.WildSpawnTypeValue)
-            {
-                Name = "Black Division Lead",
-                Description = "A team leader of Black Division.",
-                Section = "Black Division",
-                BaseBrain = "PMC",
-                BrainsToApply = brains,
-                LayersToRemove = layers
-            };
-
-            bot.SetSAINSettings(settings);
-
-            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
-
-            // assault
-            bot = new CustomWildSpawnType(848421, "blackDivAssault", "BlackDiv", baseBrainInt, true, true, false);
-
-            bot.SetCountAsBossForStatistics(false);
-            bot.SetShouldUseFenceNoBossAttack(false, false);
-            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
-
-            settings = new SAINSettings(bot.WildSpawnTypeValue)
-            {
-                Name = "Black Division Assault",
-                Description = "An assault member of Black Division, using rifles, carbines, and battle rifles.",
-                Section = "Black Division",
-                BaseBrain = "PMC",
-                BrainsToApply = brains,
-                LayersToRemove = layers
-            };
-
-            bot.SetSAINSettings(settings);
-
-            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
-
-            // breacher
-            bot = new CustomWildSpawnType(848422, "blackDivBreacher", "BlackDiv", baseBrainInt, true, true, false);
-
-            bot.SetCountAsBossForStatistics(false);
-            bot.SetShouldUseFenceNoBossAttack(false, false);
-            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
-
-            settings = new SAINSettings(bot.WildSpawnTypeValue)
-            {
-                Name = "Black Division Breacher",
-                Description = "A breacher member of Black Division, focusing on close combat.",
-                Section = "Black Division",
-                BaseBrain = "PMC",
-                BrainsToApply = brains,
-                LayersToRemove = layers
-            };
-
-            bot.SetSAINSettings(settings);
-
-            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
-
-            // support
-            bot = new CustomWildSpawnType(848423, "blackDivSupport", "BlackDiv", baseBrainInt, true, true, false);
-
-            bot.SetCountAsBossForStatistics(false);
-            bot.SetShouldUseFenceNoBossAttack(false, false);
-            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
-
-            settings = new SAINSettings(bot.WildSpawnTypeValue)
-            {
-                Name = "Black Division Support",
-                Description = "A support member of Black Division, using heavy weapons to provide suppression.",
-                Section = "Black Division",
-                BaseBrain = "PMC",
-                BrainsToApply = brains,
-                LayersToRemove = layers
-            };
-
-            bot.SetSAINSettings(settings);
-
-            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
-            
-            // Wedge
-            bot = new CustomWildSpawnType(848424, "bossWedge", "Boss", baseBrainInt, true, true, false);
-
-            bot.SetCountAsBossForStatistics(true);
-            bot.SetShouldUseFenceNoBossAttack(false, false);
-            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
-
-            settings = new SAINSettings(bot.WildSpawnTypeValue)
-            {
-                Name = "Wedge",
-                Description = "A hyper-lethal leader within Black Division.",
-                Section = "Black Division",
-                BaseBrain = "PMC",
-                BrainsToApply = brains,
-                LayersToRemove = layers
-            };
-
-            bot.SetSAINSettings(settings);
-
-            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
-            
-            // BD IB
-            bot = new CustomWildSpawnType(848426, "blackDivIb", "BlackDiv", baseBrainInt, true, true, false);
-
-            bot.SetCountAsBossForStatistics(false);
-            bot.SetShouldUseFenceNoBossAttack(false, false);
-            bot.SetExcludedDifficulties(new List<int> { 0, 2, 3 });
-
-            settings = new SAINSettings(bot.WildSpawnTypeValue)
-            {
-                Name = "Black Division Raider",
-                Description = "A member of Black Division that is a part of a raiding party.",
-                Section = "Black Division",
-                BaseBrain = "PMC",
-                BrainsToApply = brains,
-                LayersToRemove = layers
-            };
-
-            bot.SetSAINSettings(settings);
-
-            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
-
-            CustomWildSpawnTypeManager.AddSuitableGroup(new List<int> { 848420, 848421, 848422, 848423, 848424, 848426 });
+            CustomWildSpawnTypeManager.AddSuitableGroup(BlackDivGroup);
         }
 
+        private static void RegisterBot(
+            AssemblyDefinition assembly,
+            int id,
+            string name,
+            string role,
+            bool countsAsBoss = false)
+        {
+            var bot = new CustomWildSpawnType(
+                id,
+                name,
+                role,
+                BaseBrainType,
+                true,
+                true,
+                false);
+
+            bot.SetCountAsBossForStatistics(countsAsBoss);
+            bot.SetShouldUseFenceNoBossAttack(false, false);
+            bot.SetExcludedDifficulties(ExcludedDifficulties);
+
+            CustomWildSpawnTypeManager.RegisterWildSpawnType(bot, assembly);
+        }
     }
 }

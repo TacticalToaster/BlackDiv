@@ -1,5 +1,6 @@
 ﻿using DrakiaXYZ.BigBrain.Brains;
 using EFT;
+using EFT.AssetsManager;
 using EFT.InputSystem;
 using MoreBotsAPI.Behavior.Layers;
 using SPT.Reflection.Patching;
