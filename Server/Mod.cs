@@ -25,7 +25,7 @@ public record ModMetadata : IModMetadata
     public List<string>? Incompatibilities { get; init; }
     public Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; } = new()
     {
-        { "com.morebotsapi.tacticaltoaster", new SemanticVersioning.Range(">=2.1.0") },        
+        { "com.morebotsapi.tacticaltoaster", new SemanticVersioning.Range(">=2.1.1") },        
         { "me.sol.sain", new SemanticVersioning.Range("~4.5.1") },
         { "com.wtt.commonlib", new SemanticVersioning.Range(">=3.0.0") },
         { "com.wtt.contentbackport",  new SemanticVersioning.Range(">=2.0.0") }
