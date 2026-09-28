@@ -66,7 +66,6 @@ public class BlackDivServer(
     MoreBotsServer.Services.LoadoutService loadoutService,
     WTTServerCommonLib.WTTServerCommonLib commonLib,
     IReadOnlyList<SptMod> modList,
-    SpawnController spawnController,
     BotTable botTable,
     TemplateTable templateTable
 ) : IOnLoad
@@ -143,10 +142,21 @@ public class BlackDivServer(
         // Use WTT to add locales
         await commonLib.CustomLocaleService.CreateCustomLocales(assembly);
 
-        // Add to spawns
+        await Task.CompletedTask;
+    }
+}
+
+// Add to spawns after spawn managers such as ABPS have rebuilt the location spawn lists, using MoreBotsLoadOrder.AddSpawns.
+[Injectable(InjectionType = InjectionType.Singleton, TypePriority = MoreBotsServer.MoreBotsLoadOrder.AddSpawns)]
+public class BlackDivSpawns(
+    SpawnController spawnController
+) : IOnLoad
+{
+    public Task OnLoadAsync(CancellationToken cancellationToken)
+    {
         spawnController.AdjustAllSpawns();
 
-        await Task.CompletedTask;
+        return Task.CompletedTask;
     }
 }
 
